@@ -17,7 +17,7 @@ skills = %w(ruby javascript python nodejs rails c++ html css kotlin)
 index = 0
 5.times do
   skill = Skill.new(name: skills[index])
-  index +=1
+  index += 1
   skill.save
 end
 
@@ -26,6 +26,8 @@ puts "creating 5 fake user_skills"
 index1 = 0
 5.times do
   user_skill = UserSkill.new(user_id: User.all[index1].id, skill_id: Skill.all[index1].id)
-  index1 +=1
+  index1 += 1
   user_skill.save
 end
+
+puts' Finished faking data'
