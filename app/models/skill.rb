@@ -1,6 +1,7 @@
 class Skill < ApplicationRecord
-  belongs_to :user
+  has_many :users  
+  has_many :users, through: :user_skills
 
-  validates :name, :skill_level, presence: true
-  validates :skill_level, inclusion: { in: [1, 2, 3, 4, 5] }
+  validates :name, presence: true
+  # validates :skill_level, inclusion: { in: [1, 2, 3, 4, 5] }
 end
