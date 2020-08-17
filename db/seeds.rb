@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "faker"
+puts "creating five fake users"
+5.times do 
+  user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: ("a".."z").to_a.sample(8))
+  user.save
+end
+
+puts "creating fake skills"
+skills = %w(ruby javascript python nodejs rails c++ html css kotlin)
+index = 0
+5.times do
+  skill = Skill.new(name: skills[index])
+  index +=1
+  skill.save
+end
