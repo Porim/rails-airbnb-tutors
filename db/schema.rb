@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_17_114821) do
+ActiveRecord::Schema.define(version: 2020_08_17_134144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "title"
+    t.text "description"
+    t.bigint "booked_user_id"
+    t.date "start_time"
+    t.date "end_time"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.bigint "booking_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_messages_on_booking_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "booking_id", null: false
+    t.bigint "user_id", null: false
+    t.text "content"
+    t.integer "rating"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "skills", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "skill_level"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_skills_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -23,8 +65,22 @@ ActiveRecord::Schema.define(version: 2020_08_17_114821) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.boolean "consultant"
+    t.integer "price_per_hour"
+    t.string "github"
+    t.string "medium"
+    t.string "profile_website"
+    t.string "linkedin"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "users"
+  add_foreign_key "messages", "bookings"
+  add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "skills", "users"
 end
