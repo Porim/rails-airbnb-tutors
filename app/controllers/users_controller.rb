@@ -4,12 +4,12 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  # def show
-  # end
+  def show
+  end
 
-  # private
+  private
 
-  # def set_user
-
-  # end
+  def set_user
+    
+  end
 end
