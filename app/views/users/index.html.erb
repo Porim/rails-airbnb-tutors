@@ -1,0 +1,15 @@
+<h1>Hey, users here</h1>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+    <p><%= user.first_name %>
+    <%= user.last_name %>
+    <% if user.skills[0] != nil %>
+    <%= user.skills[0].name %>
+    </p>
+    <%= link_to "Check info", user_path(user), class: "btn btn-primary" %>
+    <%= link_to "Book me", new_user_booking_path(user), class: "btn btn-primary" %>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
