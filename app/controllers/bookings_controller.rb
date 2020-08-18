@@ -3,6 +3,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @user = User.find(params[:user_id])
   end
+  
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to profile_path
+  end
 
   def create
     @user = User.find(params[:user_id])
