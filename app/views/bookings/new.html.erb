@@ -1,0 +1,11 @@
+<h1>Create a New Booking!</h1>
+<%= simple_form_for [@user, @booking] do |f| %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :start_time %>
+<%= f.input :end_time %>
+<p>Price per hour for this booking: <%=@user.price_per_hour %> <i class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i></p> 
+<%= f.submit class: "btn btn-outline-success" %>
+
+<!-- add calcualtor for price_per_hour -->
+<% end %>

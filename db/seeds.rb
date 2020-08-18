@@ -6,6 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
+UserSkill.destroy_all
+Skill.destroy_all
+Booking.destroy_all
+User.destroy_all
 puts "creating 10 fake users"
 10.times do 
   first_name = Faker::Name.first_name
