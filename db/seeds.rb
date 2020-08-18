@@ -6,27 +6,29 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require "faker"
-puts "creating five fake users"
-5.times do 
-  user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, password: ("a".."z").to_a.sample(8))
+puts "creating 10 fake users"
+10.times do 
+  first_name = Faker::Name.first_name
+  last_name = Faker::Name.last_name
+  user = User.new(first_name: first_name, last_name: last_name, email: Faker::Internet.email, password: ("a".."z").to_a.sample(8), github: "https://github.com/#{first_name}", profile_website: Faker::Internet.url, price_per_hour: [20,40,30,50,100,80,75,45,35,25,10,15].sample, linkedin: "https://linkedin.com/in/#{first_name}-#{last_name}")
   user.save
 end
 
 puts "creating fake skills"
-skills = %w(ruby javascript python nodejs rails c++ html css kotlin)
+skills = %w(Ruby Javascript Python NodeJS Rails C++ HTML CSS Kotlin Go Angular VueJS )
 index = 0
-5.times do
+10.times do
   skill = Skill.new(name: skills[index])
   index += 1
   skill.save
 end
 
 
-puts "creating 5 fake user_skills"
-index1 = 0
-5.times do
-  user_skill = UserSkill.new(user_id: User.all[index1].id, skill_id: Skill.all[index1].id)
-  index1 += 1
+puts "creating fake user_skills"
+index = 0
+10.times do
+  user_skill = UserSkill.new(user_id: User.all[index].id, skill_id: Skill.all[index].id)
+  index += 1
   user_skill.save
 end
 
