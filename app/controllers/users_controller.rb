@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @users = User.where(consultant: true)
+    @users = User.all
   end
 
   def show
