@@ -1,9 +1,50 @@
-<h1>My Profile</h1>
-<a href="#" class='btn btn-outline-primary'>Make profile visible</a>
-<h3>Bookings</h3>
+<hr class='hr-separator-nav mb-5'>
+<div class="flex">
+  <div class="card-product">
+    <div class="card-image">
+    </div>
+    <div class="card-product-infos pl-5">
+      <h1>
+        <%= @user.first_name %>
+        <%= @user.last_name %>
+      </h1>
+      <h6 class='rankings bold'>Software developer @ Le Wagon</h6>
+      <h6>Price for hourly consultation:
+        <%= @user.price_per_hour %>
+      </h6>
+      <p class='pt-4 pb-2'>Rankings </p>
+      <h5>8.5 <span class='rankings'><i class="fas fa-star"></i><i
+            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+            class="fas fa-star-half-alt"></i></span></h5>
+      <hr class='hr-separator in-card'>
+    </div>
+    <div class="skills">
+      <h1>Skills</h1>
+      <% @user.skills.each do |skill| %>
+      <h6 class='rankings bold'>
+        <%= skill.name %> <span class='rankings'><i class="fas fa-star"></i><i
+            class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+            class="far fa-star"></i></span></h6>
+      <% end %>
+      <hr class='hr-separator in-skills'>
+    </div>
+    <div class="get-in-touch">
+      <h1>Contact</h1>
+      <h6><i class="fas fa-envelope"></i> <a href="<%= @user.email %>">Email</a></h6>
+      <h6><i class="fab fa-github-square"></i>
+        <a href="<%= @user.github %>">GitHub</a></h6>
+      <h6><i class="fas fa-globe-europe"></i>
+        <a href="<%= @user.profile_website %>">My Website</a></h6>
+      <hr class='hr-separator in-contact'>
+    </div>
+  </div>
+</div>
+<!-- <a href="#" class='btn btn-outline-primary'>Make profile visible</a> -->
+<h3 class='mt-5'>Bookings</h3>
 <% @bookings.each do |booking| %>
 <p>
-  <%= booking.title  %> <%= link_to 'Cancel booking', booking_path(booking), method: :delete, class: 'btn btn-outline-danger'  %>
+  <%= booking.title  %>
+  <%= link_to 'Cancel booking', booking_path(booking), method: :delete, class: 'btn btn-outline-danger'  %>
 </p>
 <ul>
   <li>
@@ -15,6 +56,7 @@
   <li>
     <%= booking.end_time  %>
   </li>
-  <li>Total cost: <%= User.find(booking.booked_user_id).price_per_hour * (booking.end_time.hour - booking.start_time.hour) %>£</li>
+  <li>Total cost:
+    <%= User.find(booking.booked_user_id).price_per_hour * (booking.end_time.hour - booking.start_time.hour) %>£</li>
 </ul>
 <% end %>

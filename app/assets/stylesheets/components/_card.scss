@@ -1,0 +1,66 @@
+.card-product {
+  overflow: hidden;
+  height: 240px;
+  background: white;
+  // box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: flex-start;
+  padding: 12px 56px;
+  padding-bottom: 36px;
+  width: 100%;
+}
+
+.card-image {
+  height: 110%;
+  width: 240px;
+  object-fit: cover;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/Boris_Johnson_official_portrait_%28cropped%29.jpg");
+  background-position: center;
+  background-size: cover;
+  border-radius: 10%;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.card-product-infos.pl-5 {
+  padding-top: 0;
+  margin-left: 0;
+  padding-left: 0;
+
+}
+
+.rankings {
+  color: #2297F3;
+}
+
+.rankings.bold {
+  color: #2297F3;
+  font-weight: bold;
+}
+
+.get-in-touch {
+  padding-left: 100px;
+  width: 330px;
+}
+
+.skills {
+  width: 330px;
+  padding-left: 100px;
+}
