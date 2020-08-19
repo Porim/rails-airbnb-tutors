@@ -1,0 +1,36 @@
+.hr-separator {
+  // color: rgba(20, 20, 20, 0.1);
+  background-color: #2297F3;
+}
+
+.hr-separator-nav {
+  background-color: rgba(20, 20, 20, 0.1)
+}
+
+.hr-separator.in-card {
+  margin-top: 11.5%;
+}
+
+.card-container {
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+.hr-separator.in-contact {
+  margin-top: 35.5%;
+  background-color: $green;
+  width: 100%;
+}
+
+.hr-separator.in-skills {
+  margin-top: 47.5%;
+  background-color: $orange;
+}
