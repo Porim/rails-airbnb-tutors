@@ -4,10 +4,10 @@ class Booking < ApplicationRecord
   has_many :reviews
 
   validates :title, :description, :start_time, :end_time, presence: true
-  # validates_datetime :end_time, :after => :start_time 
+  
   validate :check_time_equality
   def check_time_equality
-    if self.start_time >= self.end_time 
+    if self.start_time >= self.end_time
       errors.add(:end_time, "must be after the start date")
     end
     unless ((self.end_time.time - self.start_time.time) % 3600).zero?
