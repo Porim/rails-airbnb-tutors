@@ -5,8 +5,12 @@ const totalCost = () => {
   const totalCost = document.querySelector('#total-cost')
 
   endTime.addEventListener('change', (event) => {
-    totalCost.innerText = `Total cost: ${hourCost * (endTime.value - startTime)}£`
+    const userTime = endTime.value - startTime;
+    if (userTime > 0 && ((userTime * 60) % 60 == 0)) {
+    totalCost.innerText = `Total cost: ${hourCost * (endTime.value - startTime)}£`;
+    } else {
+      totalCost.innerText = ''
+    }
   })
 }
-
 export { totalCost }
