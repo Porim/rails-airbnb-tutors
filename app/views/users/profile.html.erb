@@ -3,7 +3,8 @@
 <h3>Bookings</h3>
 <% @bookings.each do |booking| %>
 <p>
-  <%= booking.title  %> <%= link_to 'Cancel booking', booking_path(booking), method: :delete, class: 'btn btn-outline-danger'  %>
+  <%= booking.title  %> <%= link_to 'Cancel booking', booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: 'btn btn-outline-danger' %>
+
 </p>
 <ul>
   <li>
