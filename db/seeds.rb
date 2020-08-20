@@ -11,10 +11,10 @@ Skill.destroy_all
 Booking.destroy_all
 User.destroy_all
 puts "creating 10 fake users"
-10.times do 
+10.times do
   first_name = Faker::Name.first_name
   last_name = Faker::Name.last_name
-  user = User.new(first_name: first_name, last_name: last_name, email: Faker::Internet.email, password: ("a".."z").to_a.sample(8), github: "https://github.com/#{first_name}", profile_website: Faker::Internet.url, price_per_hour: [20,40,30,50,100,80,75,45,35,25,10,15].sample, linkedin: "https://linkedin.com/in/#{first_name}-#{last_name}")
+  user = User.new(first_name: first_name, last_name: last_name, email: Faker::Internet.email, password: ("a".."z").to_a.sample(8), github: "https://github.com/#{first_name}", profile_website: Faker::Internet.url, price_per_hour: [20,40,30,50,100,80,75,45,35,25,10,15].sample, linkedin: "https://linkedin.com/in/#{first_name}-#{last_name}", consultant: [true,false].sample)
   user.save
 end
 
