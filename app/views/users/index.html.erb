@@ -5,9 +5,9 @@
       <div class="card-user">
         <%= link_to user_path(user) do %>
           <% if user.photo.present? %>
-            <%= cl_image_tag user.photo.key, class: "user_card_image" %> <!-- replace id to class in css -->
+            <%= cl_image_tag user.photo.key, class: "user_card_image" %>
           <% else %>
-            <%= cl_image_tag "sz0p4cun81ulmqhtrkci", class: "user_card_image" %>
+            <%= cl_image_tag "avo_jr18x6", class: "user_card_image" %>
           <% end %>
           <div class="card-user-infos">
             <div>
