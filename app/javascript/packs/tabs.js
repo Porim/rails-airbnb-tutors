@@ -6,25 +6,28 @@ const editTabs = () => {
   const cardBookings = document.querySelector('#profile-bookings');
   myProfile.addEventListener('click', (event) => {
     event.preventDefault();
-    if (cardProduct.classList.value === 'flex invisible') {
-    myProfile.classList.toggle("active");
-    myBookings.classList.toggle("active");
-    cardProduct.classList.toggle('invisible');
-    cardBookings.id = 'profile-bookings';
-  }
+    console.log(cardProduct);
+    if (cardProduct.classList.value === 'invisible') {
+      
+      myProfile.classList.toggle("active");
+      myBookings.classList.toggle("active");
+      cardProduct.classList.toggle('invisible');
+      cardBookings.id = 'profile-bookings';
+    }
+    console.log(cardProduct.id)
   })
 
   myBookings.addEventListener('click', (event) => {
     event.preventDefault();
     if (myBookings.classList.value != 'active') {
-    myProfile.classList.toggle("active");
-    myBookings.classList.toggle("active");
-    cardProduct.classList.toggle('invisible');
-    cardBookings.classList.remove('invisible');
-    cardBookings.id = 'visible';
+      myProfile.classList.toggle("active");
+      myBookings.classList.toggle("active");
+      cardProduct.classList.toggle('invisible');
+      // cardBookings.classList.remove('invisible');
+      cardBookings.id = 'visible';
     }
   })
-  
+
   // editProfile.addEventListener('click', (event) => {
   //   event.preventDefault();
   //   myProfile.classList.toggle("active");
