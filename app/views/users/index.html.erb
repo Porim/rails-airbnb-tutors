@@ -2,8 +2,8 @@
   <h1>SEARCH BAR HERE</h1>
   <div class="card-container">
     <% @users.each do |user| %>
-        <div class="card-user">
-          <%= link_to user_path(user) do %>
+      <div class="card-user">
+        <%= link_to user_path(user) do %>
           <% if user.photo.present? %>
             <%= cl_image_tag user.photo.key, class: "user_card_image" %> <!-- replace id to class in css -->
           <% else %>
@@ -18,7 +18,7 @@
               <% end %>
             </div>
             <h2 class="user-pricing"><%= "#{user.price_per_hour}£" %></h2>
-<!--        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-avatar avatar-bordered" /> -->
+          <!-- <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-avatar avatar-bordered" /> -->
           </div>
         <% end %>
       </div>
