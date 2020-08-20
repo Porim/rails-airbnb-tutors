@@ -4,7 +4,11 @@
     <% @users.each do |user| %>
       <%= link_to user_path(user) do %>
         <div class="card-user">
-          <%= image_tag "coding_card2.jpg", id: "user_card_image" %>
+          <% if user.photo.present? %>
+            <%= cl_image_tag user.photo.key, class: "user_card_image" %> <!-- replace id to class in css -->
+          <% else %>
+            <%= cl_image_tag "sz0p4cun81ulmqhtrkci", class: "user_card_image" %>
+          <% end %>
           <div class="card-user-infos">
             <div>
               <h2><%= user.first_name %> <%= user.last_name %></h2>
@@ -13,8 +17,8 @@
                 <strong><%= user.skills[0].name %></strong>
               <% end %>
             </div>
-              <h2 class="user-pricing"><%= "#{user.price_per_hour}£" %></h2>
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-avatar avatar-bordered" />
+            <h2 class="user-pricing"><%= "#{user.price_per_hour}£" %></h2>
+<!--        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-avatar avatar-bordered" /> -->
           </div>
         </div>
       <% end %>

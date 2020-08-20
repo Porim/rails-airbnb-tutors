@@ -26,6 +26,10 @@ class UsersController < ApplicationController
     @user.save
     redirect_to profile_path
   end
+
+  def article_params
+    params.require(:user).permit(:title, :body, :photo)
+  end
   
   private
 
