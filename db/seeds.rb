@@ -14,7 +14,7 @@ User.destroy_all
 
 puts "creating fake skills"
 skills = %w(Ruby Javascript Python NodeJS Rails C++ HTML CSS Kotlin Go Angular VueJS )
-index = 0
+
 skills.each do |skill|
   skill = Skill.create(name: skill)
 end
@@ -32,29 +32,5 @@ puts "creating 10 fake users and 10 fake user_skills"
   end
 end
 
-
-
-# index = 0
-# skills = Skill.all
-# skill_id = skills.map {|skill| skill.id}
-
-# 10.times do
-#   user_skill = UserSkill.new(user_id: User.all[index].id)
-#   current_skill_id = skill_id.sample
-#   user_skill.skill_id = current_skill_id
-#   user_skill.skill_level = skill_level.sample
-#   user_skill.save
-#   skill_id -= [current_skill_id ]
-#   current_skill_id = skill_id.sample
-#   user_skill.skill_id = current_skill_id
-#   user_skill.skill_level = skill_level.sample
-#   user_skill.save
-#   skill_id -= [current_skill_id ]
-#   current_skill_id = skill_id.sample
-#   user_skill.skill_id = current_skill_id
-#   user_skill.skill_level = skill_level.sample
-#   user_skill.save
-#   index += 1
-# end
 
 puts' Finished faking data'
