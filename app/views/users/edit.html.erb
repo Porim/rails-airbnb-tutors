@@ -1,0 +1,45 @@
+<div class="new-cock-form">
+  <div class="form-div">
+    <i class="fas fa-layer-group mb-4" id='in-form'></i>
+    <h1 class='text-white font-weight-bold pb-5 form-h1'>Edit you profile
+    </h1>
+    <%= simple_form_for @user do |f| %>
+    <div class='text-white'>
+    <%= f.input :years, label: 'Years of experience' %>
+    </div>
+    <div class='text-white'>
+    <%= f.input :about_me %>
+    </div>
+    <div class="text-white">
+    <%= f.input :job_title %>
+    </div>
+    <div class="text-white">
+    <%= f.input :price_per_hour %>
+    </div>
+    <div class="text-white">
+    <%= f.input :specialism, label: 'Your specialism' %>
+    </div>
+    <div class="text-white">
+    <%= f.input :github %>
+    </div>
+    <div class="text-white">
+    <%= f.input :linkedin %>
+    </div>
+    <div class="text-white">
+    <%= f.input :medium %>
+    </div>
+    <div class="text-white">
+    <%= f.input :profile_website %>
+    </div>
+    <div class="text-white">
+    <%= f.association :skills, label: 'Select skills to add to your profile' %>
+    </div>
+    <div class="text-white">
+    <%= f.input :photo, as: :file %>
+    </div>
+    <div class="text-white">
+    <%= f.submit 'Update your profile', class: 'btn btn-success mt-4' %>
+    </div>
+    <% end %>
+  </div>
+</div>

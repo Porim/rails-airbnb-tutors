@@ -1,0 +1,29 @@
+.new-cock-form {
+  text-align: center;
+  width: 100%;
+
+  background: linear-gradient(320.31deg, #097F8C 40.21%, rgba(196, 196, 196, 0) 89.23%, rgba(196, 196, 196, 0) 91.33%);
+  background-size: cover;
+  background-position: center;
+  padding-top: 4px;
+}
+
+.form-h1 {
+  color: #097F8C !important;
+}
+
+.form-div {
+  width: 40%;
+  margin: 60px auto;
+  padding: 24px;
+  padding-top: 0;
+}
+
+.form-div>* {
+  padding: 8px;
+}
+
+#in-form {
+ font-size: 52px; 
+ color: #097F8C;
+}
