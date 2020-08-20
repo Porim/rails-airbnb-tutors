@@ -13,6 +13,20 @@ class UsersController < ApplicationController
     @bookings = @user.bookings
   end
 
+  def consultant_true
+    @user = current_user
+    @user.consultant = true
+    @user.save
+    redirect_to profile_path
+  end
+  
+  def consultant_false
+    @user = current_user
+    @user.consultant = false
+    @user.save
+    redirect_to profile_path
+  end
+  
   private
 
   def set_user

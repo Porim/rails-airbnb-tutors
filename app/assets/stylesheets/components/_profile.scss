@@ -7,9 +7,7 @@
   background-color: rgba(20, 20, 20, 0.1)
 }
 
-.hr-separator.in-card {
-  margin-top: 11.5%;
-}
+
 
 .card-container {
   width: 100%;
@@ -24,13 +22,42 @@
   justify-content: left;
 }
 
-.hr-separator.in-contact {
-  margin-top: 35.5%;
-  background-color: $green;
-  width: 100%;
+// .hr-separator.in-contact {
+//   height: 110%;
+//   width: 240px;
+//   background-color: $green;
+//   margin-top: 75%;
+// }
+
+// .hr-separator.in-skills {
+//   height: 110%;
+//   width: 240px;
+//   background-color: $orange;
+//   margin-top: 75%;
+// }
+
+// .hr-separator.in-card {
+//   height: 110%;
+//   width: 240px;
+//   margin-top: 75%;
+// }
+
+.skills {
+  border-bottom: 1px solid $orange;
+  margin-left: 100px;
+  height: 100%;
+  width: 20%;
 }
 
-.hr-separator.in-skills {
-  margin-top: 47.5%;
-  background-color: $orange;
+.get-in-touch {
+  margin-left: 100px;
+  border-bottom: 1px solid $green;
+  height: 100%;
+  width: 20%;
+}
+
+.become-tutor {
+  margin-left: 120px;
+  border-bottom: 1px solid $gray;
+  height: 100%;
 }
