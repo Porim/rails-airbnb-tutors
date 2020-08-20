@@ -1,65 +1,45 @@
 <div class="user-container">
   <h1>Find tutor here</h1>
   <div class="grid-container">
-    <% @users.each do |user| %>  
-      <%= link_to user_path(user) do %>
-        <div class="card-trip">
-          <%= image_tag "user_card.jpg", id: "user_card_image" %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= user.first_name %><%= user.last_name %></h2>
-              <p>Languages known: 
-              <% if user.skills[0] != nil %>
-                <strong><%= user.skills[0].name %></strong>
-              <% end %>
-            </div>
-              <h2 class="card-trip-pricing"><%= "#{user.price_per_hour}£" %></h2>
-            <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
-          </div>
+    <% @users.each do |user| %>
+    <%= link_to user_path(user) do %>
+    <div class="card-trip">
+      <%= image_tag "user_card.jpg", id: "user_card_image" %>
+      <div class="card-trip-infos">
+        <div>
+          <h2>
+            <%= user.first_name %>
+            <%= user.last_name %>
+          </h2>
+          <p>Languages known:
+            <% if user.skills[0] != nil %>
+            <strong>
+              <%= user.skills[0].name %></strong>
+            <% end %>
         </div>
-      <% end %>
+        <h2 class="card-trip-pricing">
+          <%= "#{user.price_per_hour}£" %>
+        </h2>
+        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
+      </div>
+    </div>
+    <% end %>
     <% end %>
   </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <% if false %>
-  
-  <ul>
-    <% @users.each do |user| %>
-      <li>
-      <p><%= user.first_name %>
+<ul>
+  <% @users.each do |user| %>
+  <li>
+    <p>
+      <%= user.first_name %>
       <%= user.last_name %>
       <% if user.skills[0] != nil %>
       <%= user.skills[0].name %>
       <% end %>
-      </p>
-      <%= link_to "Check info", user_path(user), class: "btn btn-primary" %>
-      </li>
-    <% end %>
-  </ul>
-
+    </p>
+    <%= link_to "Check info", user_path(user), class: "btn btn-primary" %>
+  </li>
+  <% end %>
+</ul>
 <% end %>
