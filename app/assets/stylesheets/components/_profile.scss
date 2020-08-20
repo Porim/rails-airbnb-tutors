@@ -22,25 +22,6 @@
   justify-content: left;
 }
 
-// .hr-separator.in-contact {
-//   height: 110%;
-//   width: 240px;
-//   background-color: $green;
-//   margin-top: 75%;
-// }
-
-// .hr-separator.in-skills {
-//   height: 110%;
-//   width: 240px;
-//   background-color: $orange;
-//   margin-top: 75%;
-// }
-
-// .hr-separator.in-card {
-//   height: 110%;
-//   width: 240px;
-//   margin-top: 75%;
-// }
 
 .skills {
   border-bottom: 1px solid $orange;
@@ -60,4 +41,16 @@
   margin-left: 120px;
   border-bottom: 1px solid $gray;
   height: 100%;
+}
+
+#edit-profile {
+  padding-left: 70%;
+}
+
+// .visible {
+//   display: flex;
+// }
+
+.invisible {
+  display:none;
 }

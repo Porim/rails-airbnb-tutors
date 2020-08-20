@@ -1,18 +1,15 @@
 <hr class='hr-separator-nav mb-5'>
 <ul class="list-inline tabs-underlined mb-5">
   <li>
-    <a href="#" class="tab-underlined active">My Profile</a>
+    <a href="#" id="my-profile" class="tab-underlined active">My Profile</a>
   </li>
   <li>
-    <a href="#" class="tab-underlined">My Bookings</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Edit profile</a>
+    <a href="#" id="my-bookings" 'class="tab-underlined">My Bookings</a>
   </li>
 </ul>
 <div class="flex">
-  <div class="card-product">
-    <div class="card-image">
+  <div id='profile-card-product' class="card-product">
+    <div class="container-fluid card-image">
     </div>
     <div class="card-product-info ml-5">
       <h1> <%= @user.first_name %> <%= @user.last_name %></h1>
