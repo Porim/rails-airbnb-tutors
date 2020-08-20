@@ -1,14 +1,3 @@
-.hr-separator {
-  // color: rgba(20, 20, 20, 0.1);
-  background-color: #2297F3;
-}
-
-.hr-separator-nav {
-  background-color: rgba(20, 20, 20, 0.1)
-}
-
-
-
 .card-container {
   width: 100%;
   background: white;
@@ -47,10 +36,16 @@
   padding-left: 70%;
 }
 
-// .visible {
-//   display: flex;
-// }
 
 .invisible {
-  display:none;
+  display: none;
+}
+
+#profile-bookings {
+  display: none;
+}
+
+#visible {
+  display: block;
+  padding: 32px;
 }
