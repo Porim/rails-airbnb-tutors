@@ -1,40 +1,38 @@
-<hr class='hr-separator-nav mb-5'>
-<ul class="list-inline tabs-underlined mb-5">
+<ul class="list-inline tabs-underlined my-5">
   <li>
-    <a href="#" class="tab-underlined active">My Profile</a>
+    <a href="#" id="my-profile" class="tab-underlined active">My Profile</a>
   </li>
   <li>
-    <a href="#" class="tab-underlined">My Bookings</a>
-  </li>
-  <li>
-    <a href="#" class="tab-underlined">Edit profile</a>
+    <a href="#" id="my-bookings" 'class="tab-underlined">My Bookings</a>
   </li>
 </ul>
-<div class="flex">
+<div id='profile-card-product' class="flex">
   <div class="card-product">
-    <div class="card-image">
+    <div class="container-fluid card-image">
     </div>
     <div class="card-product-info ml-5">
       <h1> <%= @user.first_name %> <%= @user.last_name %></h1>
-    <!--   <hr class='hr-separator in-card'> -->
-    <h6>svsv</h6>
-    <h6>esds</h6>
-    <h6>esds</h6>
-
+    <h6 class='rankings bold pb-3'><%= @user.job_title %></h6>
+    <h6 class='rankings pb-3'> Price per hour: <%= @user.price_per_hour %>£</h6>
+    <h6 class='rankings pb-3'> Years of experience: <%= @user.years%></h6>
+    <h6 class='rankings pb-2'> Specialism: <%= @user.specialism%></h6>
     </div>
-    <div class="skills">
+    <div class="skills container">
       <h1>Skills</h1>
-      <h6>wcscsd</h6>
-      <h6>svss</h6>
-     <!--  <hr class='hr-separator in-skills'> -->
+      <% @user.skills.each do |skill| %>
+      <h6 class = 'text-warning font-weight-bold pb-3'><%= skill.name %></h6>
+      <% end %>
     </div>
-    <div class="get-in-touch">
+    <div class="get-in-touch container">
       <h1>Contact</h1>
-  <!--     <hr class='hr-separator in-contact'> -->
     </div>
   </div>
 </div>
-<!-- <a href="#" class='btn btn-outline-primary'>Make profile visible</a> -->
+<div class="about-me mt-5 pl-4">
+<h2>About Me</h2>
+<p><%= @user.about_me %> </p>
+</div>
+<div id='profile-bookings'>
 <h3 class='mt-5'>Bookings</h3>
 <% @bookings.each do |booking| %>
 <p>
@@ -54,4 +52,5 @@
   <li>Total cost:
     <%= User.find(booking.booked_user_id).price_per_hour * (booking.end_time.hour - booking.start_time.hour) %>£</li>
 </ul>
+</div>
 <% end %>
