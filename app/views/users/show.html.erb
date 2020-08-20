@@ -3,22 +3,18 @@
 <% else %>
 <%= cl_image_tag "sz0p4cun81ulmqhtrkci", height: 300, width: 400, crop: :fill %>
 <% end %>
-<h2>
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-</h2>
-<ul class="list-group" style="width:30%;">
-  <li class="list-group-item"> <i class="fas fa-envelope-square"></i>
-    <a href="<%= @user.email %>">Email</a> </li>
-  <li class="list-group-item"> <i class="fab fa-github-square"></i> <a
-      href="<%= @user.github %>">GitHub</a> </li>
-  <li class="list-group-item"> <i class="fas fa-globe-europe"></i> <a
-      href="<%= @user.profile_website %>">My Website</a> </li>
-  <li class="list-group-item"> <i class="fab fa-linkedin"></i> <a href="<%= @user.linkedin %>">
-      LinkedIn</a> </li>
-  <li class="list-group-item"> <span class="pound"> <i class="fas fa-pound-sign"></i><i
-        class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i></span>
-    <%= @user.price_per_hour %>
-  </li>
-</ul>
-<%= link_to "Book me", new_user_booking_path(@user), class: "btn btn-primary" %>
+<div class="jumbotron">
+  <div class="d-flex flex-column">
+    <h3 class="display-12"><%= @user.first_name %> <%= @user.last_name %></h3>
+    <ul class="list-group" style="width:40%;">
+      <li class="list-group-item"> <i class="fas fa-envelope-square"></i> <a href="<%= @user.email %>">Email</a> </li>
+      <li class="list-group-item"> <i class="fab fa-github-square"></i> <a href="<%= @user.github %>">GitHub</a> </li>
+      <li class="list-group-item"> <i class="fas fa-globe-europe"></i> <a href="<%= @user.profile_website %>">My Website</a> </li>
+      <li class="list-group-item"> <i class="fab fa-linkedin"></i> <a href="<%= @user.linkedin %>"> LinkedIn</a> </li>
+      <li class="list-group-item"> <span class="pound"> <i class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i></span> <%= @user.price_per_hour %> </li>
+    </ul>
+    <div class="d-flex flex-column" style="width:40%">
+      <%= link_to "Book me", new_user_booking_path(@user), class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>

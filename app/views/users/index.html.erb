@@ -1,49 +1,27 @@
 <div class="user-container">
-  <h1>Find tutor here</h1>
-  <div class="grid-container">
+  <h1>SEARCH BAR HERE</h1>
+  <div class="container">
     <% @users.each do |user| %>
-    <%= link_to user_path(user) do %>
-    <div class="card-trip">
-      <% if user.photo.present? %>
-      <%= cl_image_tag user.photo.key, id: "user_card_image" %>
-      <% else %>
-      <%= cl_image_tag "sz0p4cun81ulmqhtrkci", id: "user_card_image" %>
-      <% end %>
-      <div class="card-trip-infos">
-        <div>
-          <h2>
-            <%= user.first_name %>
-            <%= user.last_name %>
-          </h2>
-          <p>Languages known:
-            <% if user.skills[0] != nil %>
-            <strong>
-              <%= user.skills[0].name %></strong>
-            <% end %>
+      <%= link_to user_path(user) do %>
+        <div class="card-user">
+          <% if user.photo.present? %>
+            <%= cl_image_tag user.photo.key, class: "user_card_image" %> <!-- replace id to class in css -->
+          <% else %>
+            <%= cl_image_tag "sz0p4cun81ulmqhtrkci", class: "user_card_image" %>
+          <% end %>
+          <div class="card-user-infos">
+            <div>
+              <h2><%= user.first_name %> <%= user.last_name %></h2>
+              <p>Languages known:
+              <% if user.skills[0] != nil %>
+                <strong><%= user.skills[0].name %></strong>
+              <% end %>
+            </div>
+            <h2 class="user-pricing"><%= "#{user.price_per_hour}£" %></h2>
+<!--        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-avatar avatar-bordered" /> -->
+          </div>
         </div>
-        <h2 class="card-trip-pricing">
-          <%= "#{user.price_per_hour}£" %>
-        </h2>
-        <%# <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" /> %>
-      </div>
-    </div>
-    <% end %>
+      <% end %>
     <% end %>
   </div>
 </div>
-<% if false %>
-<ul>
-  <% @users.each do |user| %>
-  <li>
-    <p>
-      <%= user.first_name %>
-      <%= user.last_name %>
-      <% if user.skills[0] != nil %>
-      <%= user.skills[0].name %>
-      <% end %>
-    </p>
-    <%= link_to "Check info", user_path(user), class: "btn btn-primary" %>
-  </li>
-  <% end %>
-</ul>
-<% end %>

@@ -1,0 +1,19 @@
+.empty {
+  padding: 178.5px;
+}
+.footer-links > * {
+  padding: 8px;
+  color: rgba(215,215,215,0.6);
+  font-size: 24px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #61686B;
+  color: white;
+  text-align: center;
+  padding: 12px;
+}
