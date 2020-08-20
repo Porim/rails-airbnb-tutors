@@ -12,20 +12,25 @@
     </div>
     <div class="card-product-info ml-5">
       <h1> <%= @user.first_name %> <%= @user.last_name %></h1>
-    <h6 class='rankings bold'><%= @user.job_title %></h6>
-    <h6>esds</h6>
-    <h6>esds</h6>
-
+    <h6 class='rankings bold pb-3'><%= @user.job_title %></h6>
+    <h6 class='rankings pb-3'> Price per hour: <%= @user.price_per_hour %>£</h6>
+    <h6 class='rankings pb-3'> Years of experience: <%= @user.years%></h6>
+    <h6 class='rankings pb-2'> Specialism: <%= @user.specialism%></h6>
     </div>
     <div class="skills container">
       <h1>Skills</h1>
-      <h6>wcscsd</h6>
-      <h6>svss</h6>
+      <% @user.skills.each do |skill| %>
+      <h6 class = 'text-warning font-weight-bold pb-3'><%= skill.name %></h6>
+      <% end %>
     </div>
     <div class="get-in-touch container">
       <h1>Contact</h1>
     </div>
   </div>
+</div>
+<div class="about-me mt-5 pl-4">
+<h2>About Me</h2>
+<p><%= @user.about_me %> </p>
 </div>
 <div id='profile-bookings'>
 <h3 class='mt-5'>Bookings</h3>
