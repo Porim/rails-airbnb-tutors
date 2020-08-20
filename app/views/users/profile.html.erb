@@ -1,6 +1,6 @@
 <ul class="list-inline tabs-underlined my-5">
   <li>
-    <a href="#" id="my-profile" class="tab-underlined active">My
+    <a href="#" id='my-profile' class="tab-underlined active">My
       Profile</a>
   </li>
   <li>
@@ -13,25 +13,29 @@
 <div id="profile-card-product">
       <div class="flex">
         <div class="card-product">
-          <div class="container-fluid card-image" style="background-image: url('<%= cl_image_path @user.photo.key %>')">
-          </div>
-          <div class="card-product-info ml-5">
-            <h1 class='
+           <% if current_user.photo.present? %>
+             <div class="container-fluid card-image" style="background-image: url('<%=cl_image_path @user.photo.key %>')">
+      </div>
+           <% else %>
+            <div class="container-fluid card-image" style="background-image: url('<%= cloudinary_url("avo_jr18x6")  %>')"> 
+           <% end %>
+      <div class="card-product-info ml-5">
+        <h1 class='
       profile-divs'>
-      <%= @user.first_name %>
-      <%= @user.last_name %>
-      </h1>
-      <h6 class='rankings bold pb-3'>
-        <%= @user.job_title %>
-      </h6>
-      <h6 class='rankings pb-2'> Price per hour:
-        <%= @user.price_per_hour %>£</h6>
-      <h6 class='rankings pb-2'> Years of experience:
-        <%= @user.years%>
-      </h6>
-      <h6 class='rankings pb-2'> Specialism:
-        <%= @user.specialism%>
-      </h6>
+          <%= @user.first_name %>
+          <%= @user.last_name %>
+        </h1>
+        <h6 class='rankings bold pb-3'>
+          <%= @user.job_title %>
+        </h6>
+        <h6 class='rankings pb-2'> Price per hour:
+          <%= @user.price_per_hour %>£</h6>
+        <h6 class='rankings pb-2'> Years of experience:
+          <%= @user.years%>
+        </h6>
+        <h6 class='rankings pb-2'> Specialism:
+          <%= @user.specialism%>
+        </h6>
       </div>
       <div class="skills container">
         <h1 class='profile-divs pb-3'>Skills</h1>

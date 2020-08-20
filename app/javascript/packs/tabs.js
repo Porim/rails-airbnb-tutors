@@ -8,7 +8,7 @@ const editTabs = () => {
     event.preventDefault();
     console.log(cardProduct);
     if (cardProduct.classList.value === 'invisible') {
-      
+
       myProfile.classList.toggle("active");
       myBookings.classList.toggle("active");
       cardProduct.classList.toggle('invisible');
