@@ -4,7 +4,11 @@
     <% @users.each do |user| %>
     <%= link_to user_path(user) do %>
     <div class="card-trip">
-      <%= image_tag "user_card.jpg", id: "user_card_image" %>
+      <% if user.photo.present? %>
+      <%= cl_image_tag user.photo.key, id: "user_card_image" %>
+      <% else %>
+      <%= cl_image_tag "sz0p4cun81ulmqhtrkci", id: "user_card_image" %>
+      <% end %>
       <div class="card-trip-infos">
         <div>
           <h2>
