@@ -8,149 +8,120 @@
       'class="tab-underlined">My Bookings</a>
   </li>
 </ul>
-
+<% default_av = cloudinary_url("el5zuglot14jgl44hjr5alr3qpzz") %>
 
 <div id="profile-card-product">
-      <div class="flex">
-        <div class="card-product">
-           <% if current_user.photo.present? %>
-             <div class="container-fluid card-image" style="background-image: url('
-      <%=cl_image_path @user.photo.key %>')">
+  <div class="flex">
+    <div class="card-product">
+      <% if current_user.photo.present? %>
+        <div class="container-fluid card-image"
+             style="background-image: url('<%=cl_image_path @user.photo.key %>');">
       </div>
-        <% else %>
-        <div class="container-fluid card-image" style="background-image: url('<%= cloudinary_url("
-          el5zuglot14jgl44hjr5alr3qpzz") %>');">
-        </div>
-        <% end %>
-        <div class="card-product-info ml-5">
-          <h1 class='
-      profile-divs'>
-            <%= @user.first_name %>
-            <%= @user.last_name %>
-          </h1>
-          <h6 class='rankings bold pb-3'>
-            <%= @user.job_title %>
-          </h6>
-          <h6 class='rankings pb-2'> Price per hour:
-            <%= @user.price_per_hour %>£</h6>
-          <h6 class='rankings pb-2'> Years of experience:
-            <%= @user.years%>
-          </h6>
-          <h6 class='rankings pb-2'> Specialism:
-            <%= @user.specialism%>
-          </h6>
-        </div>
-        <div class="skills container">
-          <h1 class='profile-divs pb-3'>Skills</h1>
-          <% @user.skills.each do |skill| %>
-          <h6 class='text-warning font-weight-bold pb-3'>
+      <% else %>
+      <div class="container-fluid card-image" style="background-image: url('<%= default_av %>');">
+      </div>
+      <% end %>
+      <div class="card-product-info ml-5">
+        <h1 class='
+      profile-divs pb-4'>
+          <%= @user.first_name %>
+          <%= @user.last_name %>
+        </h1>
+
+        <h6 class='rankings pb-2 font-weight-bold'> Price per hour:
+          <%= @user.price_per_hour %>£</h6>
+        <h6 class='rankings pb-2 font-weight-bold'> Years of experience:
+          <%= @user.years%>
+        </h6>
+        <h6 class='rankings pb-2 font-weight-bold'> Specialism:
+          <%= @user.specialism%>
+        </h6>
+      </div>
+      <div class="skills container">
+        <h1 class='profile-divs pb-2'>Skills</h1>
+        <% @user.skills.each do |skill| %>
+        <h6 class='text-warning font-weight-bold'>
+          <div class="flexie">
             <%= skill.name %>
-          </h6>
+            <div class="actions">
+              <a class="btn round-bordered incrementer minus"
+                data-offset="-1">-</a>
+              <span class="counter-rating" data-count="1">1</span>
+              <a href="#" class="btn round-bordered incrementer"
+                data-offset="1">+</a>
+            </div>
+          </div>
+        </h6>
+        <% end %>
+      </div>
+      <div class="get-in-touch container">
+        <h1 class='profile-divs pb-3'>Contact</h1>
+        <h6 class='font-weight-bold text-success'>
+          <%= link_to @user.github do  %>
+          <i class="fab fa-github-square pr-3 text-success"></i><span
+            class='text-success'>Github</span>
           <% end %>
-          <div class="card-product-info ml-5">
-            <h1 class='
-      profile-divs'>
-              <%= @user.first_name %>
-              <%= @user.last_name %>
-            </h1>
+        </h6>
+        <h6 class='font-weight-bold text-success'>
+          <%= link_to @user.linkedin do  %>
+          <i class="fab fa-linkedin pr-3 text-success" id='fab-icons'></i><span
+            class='text-success'>LinkedIn</span>
+          <% end %>
+        </h6>
+        <h6 class='font-weight-bold text-success'>
+          <%= link_to @user.medium do  %>
+          <i class="fab fa-medium pr-3 text-success"></i><span class='text-success'>Medium</span>
+          <% end %>
+        </h6>
+        </h6>
+        <h6 class='font-weight-bold text-success'>
+          <%= link_to @user.profile_website do  %>
+          <i class="fas fa-globe-europe pr-3 text-success "></i><span
+            class='text-success'>Personal
+            Website</span></h6>
+        <% end %>
+      </div>
+      </div>
+      </div>
+      <div class="become-tutor">
+        <% unless @user.consultant %>
+        <%= link_to 'Become a tutor', consultant_path(@user), method: :put, class: 'btn btn-outline-success ml-5'  %>
+        <% else %>
+        <%= link_to 'Hide the profile', consultant_false_path(@user), method: :put, class: 'btn btn-outline-danger ml-5', id: ' button-cons'  %>
+        <% end %>
+      </div>
+      <div class="about-me my-5 pl-4 pb-5">
+        <h2>About Me</h2>
+        <p>
+          <%= @user.about_me %>
+        </p>
+      </div>
+      </div>
+      <div id='profile-bookings'>
+        <div class="flex">
+          <div class="get-in-touch-no-bar container">
+            <h1 class='profile-divs pb-3'>Accepted</h1>
+          </div>
+          <div class="get-in-touch-no-bar container">
+            <h1 class='profile-divs pb-3'>Pending</h1>
+          </div>
+          <div class="get-in-touch-no-bar container">
+            <h1 class='profile-divs pb-3'>My Lessons</h1>
+            <% @bookings.each do |booking| %>
+            <h6 class="rankings bold pb-3">Booked wth:
+              <%= User.find(booking.booked_user_id).first_name %>
+              <%= User.find(booking.booked_user_id).last_name %>
+            </h6>
             <h6 class='rankings bold pb-3'>
-              <%= @user.job_title %>
+              <%= booking.description  %>
             </h6>
-            <h6 class='rankings pb-2'> Price per hour:
-              <%= @user.price_per_hour %>£</h6>
-            <h6 class='rankings pb-2'> Years of experience:
-              <%= @user.years%>
+            <h6 class='rankings bold pb-3'>Start time:
+              <%= booking.start_time  %>
             </h6>
-            <h6 class='rankings pb-2'> Specialism:
-              <%= @user.specialism%>
-            </h6>
-          </div>
-          <div class="skills container">
-            <h1 class='profile-divs pb-2'>Skills</h1>
-            <% @user.skills.each do |skill| %>
-            <h6 class='text-warning font-weight-bold'>
-              <div class="flexie">
-                <%= skill.name %>
-                <div class="actions">
-                  <a class="btn round-bordered incrementer minus"
-                    data-offset="-1">-</a>
-                  <span id="counter" data-count="1">1</span>
-                  <a href="#" class="btn round-bordered incrementer"
-                    data-offset="1">+</a>
-                </div>
-              </div>
+            <h6 class='rankings bold pb-3'>End time:
+              <%= booking.end_time  %>
             </h6>
             <% end %>
           </div>
-          <div class="get-in-touch container">
-            <h1 class='profile-divs pb-3'>Contact</h1>
-            <h6 class='font-weight-bold text-success'>
-              <%= link_to @user.github do  %>
-              <i class="fab fa-github-square pr-3 text-success"></i><span
-                class='text-success'>Github</span>
-              <% end %>
-            </h6>
-            <h6 class='font-weight-bold text-success'>
-              <%= link_to @user.linkedin do  %>
-              <i class="fab fa-linkedin pr-3 text-success" id='fab-icons'></i><span
-                class='text-success'>LinkedIn</span>
-              <% end %>
-            </h6>
-            <h6 class='font-weight-bold text-success'>
-              <%= link_to @user.medium do  %>
-              <i class="fab fa-medium pr-3 text-success"></i><span
-                class='text-success'>Medium</span>
-              <% end %>
-            </h6>
-            </h6>
-            <h6 class='font-weight-bold text-success'>
-              <%= link_to @user.profile_website do  %>
-              <i class="fas fa-globe-europe pr-3 text-success "></i><span
-                class='text-success'>Personal
-                Website</span></h6>
-            <% end %>
-          </div>
         </div>
-        </div>
-        <div class="become-tutor">
-          <% unless @user.consultant %>
-          <%= link_to 'Become a tutor', consultant_path(@user), method: :put, class: 'btn btn-outline-success ml-5'  %>
-          <% else %>
-          <%= link_to 'Hide the profile', consultant_false_path(@user), method: :put, class: 'btn btn-outline-danger ml-5', id: ' button-cons'  %>
-          <% end %>
-        </div>
-        <div class="about-me my-5 pl-4 pb-5">
-          <h2>About Me</h2>
-          <p>
-            <%= @user.about_me %>
-          </p>
-        </div>
-        </div>
-        <div id='profile-bookings'>
-          <div class="flex">
-            <div class="get-in-touch-no-bar container">
-              <h1 class='profile-divs pb-3'>Accepted</h1>
-            </div>
-            <div class="get-in-touch-no-bar container">
-              <h1 class='profile-divs pb-3'>Pending</h1>
-            </div>
-            <div class="get-in-touch-no-bar container">
-              <h1 class='profile-divs pb-3'>My Lessons</h1>
-              <% @bookings.each do |booking| %>
-              <h6 class="rankings bold pb-3">Booked wth:
-                <%= User.find(booking.booked_user_id).first_name %>
-                <%= User.find(booking.booked_user_id).last_name %>
-              </h6>
-              <h6 class='rankings bold pb-3'>
-                <%= booking.description  %>
-              </h6>
-              <h6 class='rankings bold pb-3'>Start time:
-                <%= booking.start_time  %>
-              </h6>
-              <h6 class='rankings bold pb-3'>End time:
-                <%= booking.end_time  %>
-              </h6>
-              <% end %>
-            </div>
-          </div>
-        </div>
+      </div>

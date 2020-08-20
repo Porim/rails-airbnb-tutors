@@ -1,9 +1,9 @@
 <h4 class="mt-2">Sign up</h4>
 <div>
-<div>
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-<%= f.error_notification %>
-  <div class="form-inputs container mt-3">
+  <div>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs container mt-3">
       <%= f.input :first_name %>
       <%= f.input :last_name %>
       <%= f.input :email,
@@ -17,11 +17,11 @@
       <%= f.input :password_confirmation,
                     required: true,
                     input_html: { autocomplete: "new-password" } %>
-      <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-success btn-width"%>
-      <%= render "devise/shared/links" %>
+      <div class="form-actions pb-5 mb-5">
+        <%= f.button :submit, "Sign up", class: "btn btn-success btn-width mt-1"%>
+        <%= render "devise/shared/links" %>
+      </div>
     </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 </div>
