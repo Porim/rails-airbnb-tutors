@@ -1,4 +1,23 @@
 <div class="user-container">
+<<<<<<< HEAD
+  <h1>SEARCH BAR HERE</h1>
+  <div class="container">
+    <% @users.each do |user| %>  
+      <%= link_to user_path(user) do %>
+        <div class="card-user">
+          <%= image_tag "coding_card2.jpg", id: "user_card_image" %>
+          <div class="card-user-infos">
+            <div>
+              <h2><%= user.first_name %> <%= user.last_name %></h2>
+              <p>Languages known: 
+              <% if user.skills[0] != nil %>
+                <strong><%= user.skills[0].name %></strong>
+              <% end %>
+            </div>
+              <h2 class="user-pricing"><%= "#{user.price_per_hour}£" %></h2>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user-avatar avatar-bordered" />
+          </div>
+=======
   <h1>Find tutor here</h1>
   <div class="grid-container">
     <% @users.each do |user| %>
@@ -16,6 +35,7 @@
             <strong>
               <%= user.skills[0].name %></strong>
             <% end %>
+>>>>>>> 34054c37b7158a98589cd2a73b303e4d41352604
         </div>
         <h2 class="card-trip-pricing">
           <%= "#{user.price_per_hour}£" %>
