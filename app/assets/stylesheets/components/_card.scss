@@ -11,7 +11,7 @@
 }
 
 .card-image {
-  height: 110%;
+  height: 100%;
   width: 240px;
   object-fit: cover;
   background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/76/Boris_Johnson_official_portrait_%28cropped%29.jpg");
@@ -35,15 +35,14 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-product {
   padding: 16px;
 }
 
-.card-product-infos.pl-5 {
-  padding-top: 0;
-  margin-left: 0;
-  padding-left: 0;
-
+.card-product-info.ml-5 {
+  border-bottom: 1px solid $blue;
+  height: 100%;
+  width: 20%;
 }
 
 .rankings {
@@ -55,12 +54,5 @@
   font-weight: bold;
 }
 
-.get-in-touch {
-  padding-left: 100px;
-  width: 330px;
-}
 
-.skills {
-  width: 330px;
-  padding-left: 100px;
-}
+

@@ -4,9 +4,10 @@
 <%= f.input :description %>
 <%= f.input :start_time %>
 <%= f.input :end_time %>
-<p id='hour-cost' data-price='<%= @user.price_per_hour %>'>Price per hour for this booking:
+<p id='hour-cost' data-price='<%= @user.price_per_hour %>'>Price per
+  hour for this booking:
   <%=@user.price_per_hour %>£</p>
-  <p id='total-cost'></p>
+<p id='total-cost'></p>
 <%= f.submit class: "btn btn-outline-success" %>
 <!-- add calcualtor for price_per_hour -->
 <% end %>
