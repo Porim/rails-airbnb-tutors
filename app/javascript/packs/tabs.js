@@ -6,7 +6,7 @@ const editTabs = () => {
   const cardBookings = document.querySelector('#profile-bookings');
   myProfile.addEventListener('click', (event) => {
     event.preventDefault();
-    if (cardProduct.classList.value === 'card-product invisible') {
+    if (cardProduct.classList.value === 'flex invisible') {
     myProfile.classList.toggle("active");
     myBookings.classList.toggle("active");
     cardProduct.classList.toggle('invisible');
