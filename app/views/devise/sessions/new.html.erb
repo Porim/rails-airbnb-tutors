@@ -12,7 +12,12 @@
   <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 </div>
   <div class="form-actions">
+<<<<<<< HEAD
+    <%= f.button :submit, "Log in", class: "btn btn-success btn-width" %>
+    <%= render "devise/shared/links" %>
+=======
     <%= f.button :submit, "Login", class: "btn btn-primary btn-width" %>
+>>>>>>> 6219b1cc5455e9384db147e1932f5d8dfb1e5657
     <p>If you are having issues logging in, please <a href=""><strong>contact us</strong> </a>here.</p>
     <%= %>
   </div>
