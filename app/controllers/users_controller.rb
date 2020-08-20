@@ -26,9 +26,19 @@ class UsersController < ApplicationController
     @user.save
     redirect_to profile_path
   end
-
-  def article_params
-    params.require(:user).permit(:title, :body, :photo)
+  
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    @user.update(user_params)
+    redirect_to profile_path
+  end
+  
+  def user_params
+    params.require(:user).permit(:years, :price_per_hour, :specialism, :github, :linkedin, :medium, :profile_website, :skill_ids, :job_title, :about_me, :photo)
   end
   
   private

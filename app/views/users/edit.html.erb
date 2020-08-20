@@ -1,0 +1,20 @@
+<div class="new-cock-form">
+  <div class="form-div">
+    <h1>Edit you profile
+    </h1>
+    <%= simple_form_for @user do |f| %>
+    <%= f.input :years, label: 'Years of experience'%>
+    <%= f.input :about_me %>
+    <%= f.input :job_title %>
+    <%= f.input :price_per_hour %>
+    <%= f.input :specialism, label: 'Your specialism' %>
+    <%= f.input :github %>
+    <%= f.input :linkedin %>
+    <%= f.input :medium %>
+    <%= f.input :profile_website %>
+    <%= f.association :skills, label: 'Select skills to add to your profile' %>
+    <%= f.input :photo, as: :file %>
+    <%= f.submit 'Update your profile', class: 'btn btn-outline-success' %>
+    <% end %>
+  </div>
+</div>
