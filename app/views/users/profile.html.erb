@@ -4,8 +4,7 @@
       Profile</a>
   </li>
   <li>
-    <a href="#" id="my-bookings"
-      'class="tab-underlined">My Bookings</a>
+    <a href="#" id="my-bookings" class="tab-underlined">My Bookings</a>
   </li>
 </ul>
 <% default_av = cloudinary_url("el5zuglot14jgl44hjr5alr3qpzz") %>
@@ -23,20 +22,21 @@
       </div>
       <% end %>
       <div class="card-product-info ml-5">
-        <h1 class='
+        <h3 class='
       profile-divs pb-4'>
           <%= @user.first_name %>
           <%= @user.last_name %>
-        </h1>
+        </h3>
 
-        <h6 class='rankings pb-2 font-weight-bold'> Price per hour:
-          <%= @user.price_per_hour %>£</h6>
-        <h6 class='rankings pb-2 font-weight-bold'> Years of experience:
+        <h3 class='rankings pb-2 font-weight-bold'> Price per hour:
+          <%= @user.price_per_hour %>£</h3>
+        <h3 class='rankings pb-2 font-weight-bold'> Years of experience:
           <%= @user.years%>
-        </h6>
-        <h6 class='rankings pb-2 font-weight-bold'> Specialism:
+
+        </h3>
+        <h3 class='rankings pb-2 font-weight-bold'> Specialty:
           <%= @user.specialism%>
-        </h6>
+        </h3>
       </div>
       <div class="skills container">
         <h1 class='profile-divs pb-3'>Skills</h1>
@@ -91,29 +91,49 @@
       </div>
       </div>
       <div id='profile-bookings'>
-        <div class="flex">
+        <div class="d-flex">
           <div class="get-in-touch-no-bar container">
-            <h1 class='profile-divs pb-3'>Accepted</h1>
+            <h4 class='profile-divs pb-3'>Accepted</h4>
+            <% if @accepted.empty? %>
+              <p>Not yet booked</p>
+            <% else %>
+              <% @accepted.each do |booking| %>
+              <h6 class="rankings bold pb-3">Booked wth:
+                <%= booking.user.first_name %>
+                <%= booking.user.last_name %>
+              </h6>
+              <h6 class='rankings bold pb-3'>
+                <%= booking.description  %>
+              </h6>
+              <h6 class='rankings bold pb-3'>Start time:
+                <%= booking.start_time  %>
+              </h6>
+              <h6 class='rankings bold pb-3'>End time:
+                <%= booking.end_time  %>
+              </h6>
+              <% end %>
+            <% end %>
           </div>
           <div class="get-in-touch-no-bar container">
-            <h1 class='profile-divs pb-3'>Pending</h1>
-          </div>
-          <div class="get-in-touch-no-bar container">
-            <h1 class='profile-divs pb-3'>My Lessons</h1>
-            <% @bookings.each do |booking| %>
-            <h6 class="rankings bold pb-3">Booked wth:
-              <%= User.find(booking.booked_user_id).first_name %>
-              <%= User.find(booking.booked_user_id).last_name %>
-            </h6>
-            <h6 class='rankings bold pb-3'>
-              <%= booking.description  %>
-            </h6>
-            <h6 class='rankings bold pb-3'>Start time:
-              <%= booking.start_time  %>
-            </h6>
-            <h6 class='rankings bold pb-3'>End time:
-              <%= booking.end_time  %>
-            </h6>
+            <h4 class='profile-divs pb-3'>My Lessons</h4>
+            <% if @bookings.empty? %>
+              <p>No booking now</p>
+            <% else %>
+              <% @bookings.each do |booking| %>
+                <h6 class="rankings bold pb-3">Booked wth:
+                  <%= User.find(booking.booked_user_id).first_name %>
+                  <%= User.find(booking.booked_user_id).last_name %>
+                </h6>
+                <h6 class='rankings bold pb-3'>
+                  <%= booking.description  %>
+                </h6>
+                <h6 class='rankings bold pb-3'>Start time:
+                  <%= booking.start_time  %>
+                </h6>
+                <h6 class='rankings bold pb-3'>End time:
+                  <%= booking.end_time  %>
+                </h6>
+              <% end %>
             <% end %>
           </div>
         </div>
