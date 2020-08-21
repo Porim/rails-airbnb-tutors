@@ -1,5 +1,13 @@
 <div class="user-container">
-  <h1>SEARCH BAR HERE</h1>
+  <div>
+    <%= form_tag users_path, id: "search-bar", method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search by user skills"
+      %><%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
   <div class="card-container">
     <% @users.each do |user| %>
       <div class="card-user">
