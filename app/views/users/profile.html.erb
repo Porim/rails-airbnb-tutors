@@ -23,50 +23,54 @@
       <% end %>
       <div class="card-product-info ml-5">
         <h3 class='
-      profile-divs pb-4'>
+          profile-divs pb-4'>
           <%= @user.first_name %>
           <%= @user.last_name %>
         </h3>
-
-        <h3 class='rankings pb-2 font-weight-bold'> Price per hour:
+        <div class='rankings pb-2'>
+          <h3 class='rankings pb-2'> Price per hour:
           <%= @user.price_per_hour %>£</h3>
-        <h3 class='rankings pb-2 font-weight-bold'> Years of experience:
+        <h3 class='rankings pb-2'> Years of experience:
           <%= @user.years%>
-
         </h3>
-        <h3 class='rankings pb-2 font-weight-bold'> Specialty:
+        <h3 class='rankings pb-2'> Specialty:
           <%= @user.specialism%>
         </h3>
+        </div>
       </div>
       <div class="skills container">
         <h1 class='profile-divs pb-3'>Skills</h1>
-        <% @user.skills.each do |skill| %>
-        <h6 class='text-warning font-weight-bold'>
-          <%= skill.name %>
-        </h6>
-        <% end %>
+        <% if @user.skills.empty? %>
+        <p class='not-listed'>Not listed</p>
+          <% else %>
+            <% @user.skills.each do |skill| %>
+            <h6 class='text-warning'>
+              <%= skill.name %>
+            </h6>
+            <% end %>
+          <% end %>
       </div>
       <div class="get-in-touch container">
         <h1 class='profile-divs pb-3'>Contact</h1>
-        <h6 class='font-weight-bold text-success'>
+        <h6 class='text-success'>
           <%= link_to @user.github do  %>
           <i class="fab fa-github-square pr-3 text-success"></i><span
             class='text-success'>Github</span>
           <% end %>
         </h6>
-        <h6 class='font-weight-bold text-success'>
+        <h6 class='text-success'>
           <%= link_to @user.linkedin do  %>
           <i class="fab fa-linkedin pr-3 text-success" id='fab-icons'></i><span
             class='text-success'>LinkedIn</span>
           <% end %>
         </h6>
-        <h6 class='font-weight-bold text-success'>
+        <h6 class='text-success'>
           <%= link_to @user.medium do  %>
           <i class="fab fa-medium pr-3 text-success"></i><span class='text-success'>Medium</span>
           <% end %>
         </h6>
         </h6>
-        <h6 class='font-weight-bold text-success'>
+        <h6 class='text-success'>
           <%= link_to @user.profile_website do  %>
           <i class="fas fa-globe-europe pr-3 text-success "></i><span
             class='text-success'>Personal
@@ -98,11 +102,11 @@
               <p>Not yet booked</p>
             <% else %>
               <% @accepted.each do |booking| %>
-              <h6 class="rankings bold pb-3">Booked wth:
+              <h6 class="rankings bold pb-3">Booked by:
                 <%= booking.user.first_name %>
                 <%= booking.user.last_name %>
               </h6>
-              <h6 class='rankings bold pb-3'>
+              <h6 class='rankings bold pb-3'>Title:
                 <%= booking.description  %>
               </h6>
               <h6 class='rankings bold pb-3'>Start time:
@@ -124,7 +128,7 @@
                   <%= User.find(booking.booked_user_id).first_name %>
                   <%= User.find(booking.booked_user_id).last_name %>
                 </h6>
-                <h6 class='rankings bold pb-3'>
+                <h6 class='rankings bold pb-3'>Description:
                   <%= booking.description  %>
                 </h6>
                 <h6 class='rankings bold pb-3'>Start time:

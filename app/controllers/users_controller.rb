@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @user = current_user
     @bookings = @user.bookings
     @accepted = Booking.where(booked_user_id: current_user)
+    @skills = User.where(skill_id: current_user)
   end
 
   def consultant_true
