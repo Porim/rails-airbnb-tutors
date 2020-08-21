@@ -1,20 +1,45 @@
-<% if @user.photo.present? %>
-<%= cl_image_tag @user.photo.key, class: "rounded mx-auto d-block", height: 500 %>
-<% else %>
-<%= cl_image_tag "el5zuglot14jgl44hjr5alr3qpzz", class: "rounded mx-auto d-block", height: 500, style:"width:40%;", crop: :fill %>
-<% end %>
-<div class="jumbotron jumbotron-fluid">
-  <div class="d-flex flex-column">
-    <h3 class="display-12"><%= @user.first_name %> <%= @user.last_name %></h3>
-    <ul class="list-group" style="width:40%;">
+<div class="container my-4">
+<div class="bg-dark">
+   <div class="d-flex flex-column align-items-center">
+  <div>
+    <% if @user.photo.present? %>
+      <%= cl_image_tag @user.photo.key, class: "rounded mx-auto mt-3", height: 500 %>
+    <% else %>
+      <%= cl_image_tag "el5zuglot14jgl44hjr5alr3qpzz", class: "rounded-lg mx-auto mt-3", height: 500 %>
+    <% end %>
+  </div>
+
+    <h3 class="display-2 text-white"><%= @user.first_name %> <%= @user.last_name %></h3>
+      <div class="d-flex justify-content-between py-3" style="width: 500px" >
+      <div class="card-product-info">
+      <h1 class='profile-divs pb-3 text-white'>Details</h1>
+        <h6 class='rankings font-weight-bold'> Price per hour:
+          <%= @user.price_per_hour %>£</h6>
+        <h6 class='rankings font-weight-bold'> Years of experience:
+          <%= @user.years%>
+        </h6>
+        <h6 class='rankings font-weight-bold'> Speciality:
+          <%= @user.specialism%>
+        </h6>
+      </div>
+      <div class="ml-5">
+        <h1 class='profile-divs pb-3 text-white'>Skills</h1>
+        <% @user.skills.each do |skill| %>
+        <h6 class='text-warning font-weight-bold'>
+          <%= skill.name %>
+        </h6>
+        <% end %>
+      </div>
+      </div>
+    <ul class="list-group w-100" >
       <li class="list-group-item"> <i class="fas fa-envelope-square"></i> <a href="<%= @user.email %>">Email</a> </li>
       <li class="list-group-item"> <i class="fab fa-github-square"></i> <a href="<%= @user.github %>">GitHub</a> </li>
       <li class="list-group-item"> <i class="fas fa-globe-europe"></i> <a href="<%= @user.profile_website %>">My Website</a> </li>
       <li class="list-group-item"> <i class="fab fa-linkedin"></i> <a href="<%= @user.linkedin %>"> LinkedIn</a> </li>
-      <li class="list-group-item"> <span class="pound"> <i class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i><i class="fas fa-pound-sign"></i></span> <%= @user.price_per_hour %> </li>
     </ul>
-    <div class="d-flex flex-column" style="width:40%">
+    <div class="d-flex flex-column w-100 mb-5" >
       <%= link_to "Book me", new_user_booking_path(@user), class: "btn btn-primary" %>
     </div>
+  </div>
   </div>
 </div>
