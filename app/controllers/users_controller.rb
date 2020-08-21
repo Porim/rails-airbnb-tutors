@@ -35,16 +35,22 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
+    skill_ids = params[:user][:skill_ids]
+    skill_ids.each do |skill|
+      UserSkill.create(skill_id: skill, user_id: @user.id)
+    end
     redirect_to profile_path
   end
 
-  def user_params
-    params.require(:user).permit(:years, :price_per_hour, :specialism, :github, :linkedin, :medium, :profile_website, :skill_ids, :job_title, :about_me, :photo)
-  end
+
 
   private
 
   def set_user
 
+  end
+
+  def user_params
+    params.require(:user).permit(:years, :price_per_hour, :specialism, :github, :linkedin, :medium, :profile_website, :skill_ids, :job_title, :about_me, :photo)
   end
 end
