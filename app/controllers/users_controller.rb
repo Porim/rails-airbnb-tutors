@@ -41,11 +41,12 @@ class UsersController < ApplicationController
     redirect_to profile_path
   end
   
+  private
+  
   def user_params
     params.require(:user).permit(:years, :price_per_hour, :specialism, :github, :linkedin, :medium, :profile_website, :skill_ids, :job_title, :about_me, :photo)
   end
   
-  private
 
   def set_user
     
