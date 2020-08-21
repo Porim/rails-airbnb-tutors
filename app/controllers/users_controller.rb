@@ -1,7 +1,13 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @users = User.where(consultant: true)
+    # if params[:query].present?
+    #   @skills.each do |skill|
+    #     @skills = Skill.where("title ILIKE ?", "%#{params[:query]}%")
+    #   end
+    # else
+      @users = User.where(consultant: true)
+    # end
   end
 
   def show
@@ -47,8 +53,4 @@ class UsersController < ApplicationController
     params.require(:user).permit(:years, :price_per_hour, :specialism, :github, :linkedin, :medium, :profile_website, :skill_ids, :job_title, :about_me, :photo)
   end
   
-
-  def set_user
-    
-  end
 end
