@@ -1,13 +1,27 @@
-<h1>Create a New Booking!</h1>
+<div class="new-cock-form">
+  <div class="form-div">
+    <i class="fas fa-layer-group mb-4" id='in-form'></i>
+<h1 class='text-white font-weight-bold pb-5 form-h1'>Add new booking
+    </h1>
 <%= simple_form_for [@user, @booking] do |f| %>
+<div class="text-white">
 <%= f.input :title %>
+</div>
+<div class="text-white">
 <%= f.input :description %>
+</div>
+<div class="text-white">
 <%= f.input :start_time %>
+</div>
+<div class="text-white">
 <%= f.input :end_time %>
-<p id='hour-cost' data-price='<%= @user.price_per_hour %>'>Price per
+</div>
+<h4 id='hour-cost' class='text-white font-weight-bold' data-price='<%= @user.price_per_hour %>'>Price per
   hour for this booking:
-  <%=@user.price_per_hour %>£</p>
+  <%=@user.price_per_hour %>£</h4>
 <p id='total-cost'></p>
-<%= f.submit class: "btn btn-outline-success" %>
+<%= f.submit class: "btn btn-success" %>
 <!-- add calcualtor for price_per_hour -->
 <% end %>
+  </div>
+</div>

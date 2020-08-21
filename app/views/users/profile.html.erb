@@ -22,21 +22,21 @@
       </div>
       <% end %>
       <div class="card-product-info ml-5">
-        <h3 class='
+        <h6 class='
       profile-divs pb-4'>
           <%= @user.first_name %>
           <%= @user.last_name %>
-        </h3>
+        </h6>
 
-        <h3 class='rankings pb-2 font-weight-bold'> Price per hour:
-          <%= @user.price_per_hour %>£</h3>
-        <h3 class='rankings pb-2 font-weight-bold'> Years of experience:
+        <h6 class='rankings pb-2 font-weight-bold'> Price per hour:
+          <%= @user.price_per_hour %>£</h6>
+        <h6 class='rankings pb-2 font-weight-bold'> Years of experience:
           <%= @user.years%>
 
-        </h3>
-        <h3 class='rankings pb-2 font-weight-bold'> Specialty:
+        </h6>
+        <h6 class='rankings pb-2 font-weight-bold'> Specialty:
           <%= @user.specialism%>
-        </h3>
+        </h6>
       </div>
       <div class="skills container">
         <h1 class='profile-divs pb-3'>Skills</h1>
