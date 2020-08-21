@@ -98,29 +98,49 @@
       </div>
       </div>
       <div id='profile-bookings'>
-        <div class="flex">
+        <div class="d-flex">
           <div class="get-in-touch-no-bar container">
-            <h1 class='profile-divs pb-3'>Accepted</h1>
+            <h4 class='profile-divs pb-3'>Accepted</h4>
+            <% if @accepted.empty? %>
+              <p>Not yet booked</p>
+            <% else %>
+              <% @accepted.each do |booking| %>
+              <h6 class="rankings bold pb-3">Booked wth:
+                <%= booking.user.first_name %>
+                <%= booking.user.last_name %>
+              </h6>
+              <h6 class='rankings bold pb-3'>
+                <%= booking.description  %>
+              </h6>
+              <h6 class='rankings bold pb-3'>Start time:
+                <%= booking.start_time  %>
+              </h6>
+              <h6 class='rankings bold pb-3'>End time:
+                <%= booking.end_time  %>
+              </h6>
+              <% end %>
+            <% end %>
           </div>
           <div class="get-in-touch-no-bar container">
-            <h1 class='profile-divs pb-3'>Pending</h1>
-          </div>
-          <div class="get-in-touch-no-bar container">
-            <h1 class='profile-divs pb-3'>My Lessons</h1>
-            <% @bookings.each do |booking| %>
-            <h6 class="rankings bold pb-3">Booked wth:
-              <%= User.find(booking.booked_user_id).first_name %>
-              <%= User.find(booking.booked_user_id).last_name %>
-            </h6>
-            <h6 class='rankings bold pb-3'>
-              <%= booking.description  %>
-            </h6>
-            <h6 class='rankings bold pb-3'>Start time:
-              <%= booking.start_time  %>
-            </h6>
-            <h6 class='rankings bold pb-3'>End time:
-              <%= booking.end_time  %>
-            </h6>
+            <h4 class='profile-divs pb-3'>My Lessons</h4>
+            <% if @bookings.empty? %>
+              <p>No booking now</p>
+            <% else %>
+              <% @bookings.each do |booking| %>
+                <h6 class="rankings bold pb-3">Booked wth:
+                  <%= User.find(booking.booked_user_id).first_name %>
+                  <%= User.find(booking.booked_user_id).last_name %>
+                </h6>
+                <h6 class='rankings bold pb-3'>
+                  <%= booking.description  %>
+                </h6>
+                <h6 class='rankings bold pb-3'>Start time:
+                  <%= booking.start_time  %>
+                </h6>
+                <h6 class='rankings bold pb-3'>End time:
+                  <%= booking.end_time  %>
+                </h6>
+              <% end %>
             <% end %>
           </div>
         </div>
