@@ -73,7 +73,7 @@
 
 .home-page-icons {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
@@ -85,6 +85,7 @@
 
 .no-decoration {
   text-decoration: none !important;
+  width: 33%;
 }
 
 .explanation-h5-home-page {
@@ -151,6 +152,3 @@
   align-items: center;
   justify-content: center;
 }
-  // body {
-  //   background: rgb(230, 230, 230);
-  // }

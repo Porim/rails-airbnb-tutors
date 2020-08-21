@@ -7,7 +7,7 @@
     <a href="#" id="my-bookings" class="tab-underlined">My Bookings</a>
   </li>
 </ul>
-<% default_av = cloudinary_url("el5zuglot14jgl44hjr5alr3qpzz") %>
+<% default_av = cloudinary_url("avatar_daq4b6") %>
 
 <div id="profile-card-product">
   <div class="container">
@@ -22,21 +22,21 @@
       </div>
       <% end %>
       <div class="card-product-info ml-5">
-        <h3 class='
-          profile-divs pb-4'>
+        <h6 class='
+      profile-divs pb-4'>
           <%= @user.first_name %>
           <%= @user.last_name %>
-        </h3>
-        <div class='rankings pb-2'>
-          <h3 class='rankings pb-2'> Price per hour:
-          <%= @user.price_per_hour %>£</h3>
-        <h3 class='rankings pb-2'> Years of experience:
+        </h6>
+
+        <h6 class='rankings pb-2 font-weight-bold'> Price per hour:
+          <%= @user.price_per_hour %>£</h6>
+        <h6 class='rankings pb-2 font-weight-bold'> Years of experience:
           <%= @user.years%>
-        </h3>
-        <h3 class='rankings pb-2'> Specialty:
+
+        </h6>
+        <h6 class='rankings pb-2 font-weight-bold'> Specialty:
           <%= @user.specialism%>
-        </h3>
-        </div>
+        </h6>
       </div>
       <div class="skills container">
         <h1 class='profile-divs pb-3'>Skills</h1>
