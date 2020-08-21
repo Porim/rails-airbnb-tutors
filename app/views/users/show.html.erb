@@ -1,9 +1,9 @@
 <% if @user.photo.present? %>
-<%= cl_image_tag @user.photo.key, height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag @user.photo.key, class: "rounded mx-auto d-block", height: 500 %>
 <% else %>
-<%= cl_image_tag "avo_jr18x6", height: 300, width: 400, crop: :fill %>
+<%= cl_image_tag "el5zuglot14jgl44hjr5alr3qpzz", class: "rounded mx-auto d-block", height: 500, style:"width:40%;", crop: :fill %>
 <% end %>
-<div class="jumbotron">
+<div class="jumbotron jumbotron-fluid">
   <div class="d-flex flex-column">
     <h3 class="display-12"><%= @user.first_name %> <%= @user.last_name %></h3>
     <ul class="list-group" style="width:40%;">
