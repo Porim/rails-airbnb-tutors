@@ -63,6 +63,94 @@
   color: white;
 }
 
-body {
-  background: rgb(230, 230, 230);
+#carousel {
+  width: 90%;
 }
+
+.how-it-works {
+  text-align: center;
+}
+
+.home-page-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.awesome {
+  font-size: 72px;
+  color: #097F8C;
+  font-weight: bold;
+}
+
+.no-decoration {
+  text-decoration: none !important;
+}
+
+.explanation-h5-home-page {
+  word-wrap: break-word;
+}
+
+.title-h5-home-page.pt-3 {
+  color: black;
+}
+
+.explanation-h5-home-page {
+  color: #097F8C;
+  opacity: 0.8;
+}
+
+.carousel-div {
+  margin-top: 150px;
+  width: 100%;
+  padding: 80px;
+  background-color: #097F8C;
+  margin-bottom: 150px;
+}
+
+.carousel-control-prev-icon {
+  padding-right: 50px;
+}
+
+.carousel-control-next-icon {
+  padding-left: 50px;
+}
+
+
+.testimonial-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+
+}
+
+.test-h2 {
+  font-size: 32px;
+  color:white;
+  font-weight: bold;
+  text-align:center;
+}
+
+.active {
+    opacity: 1;
+    border-bottom: none !important; 
+    padding-bottom: 8px;
+}
+
+.test-div-review {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  width: 80%;
+}
+
+.test-flex-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+// body {
+//   background: rgb(230, 230, 230);
+// }
